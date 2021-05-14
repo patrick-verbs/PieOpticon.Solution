@@ -71,5 +71,19 @@ namespace PieOpticon.Test
       // Assert
       CollectionAssert.AreEqual(expectedList, outputList);
     }
+
+    [TestMethod]
+    public void GetId_VendorsInstantiateWithAnIdAndGetterReturns_Int()
+    {
+    // Arrange
+    string inputName = "Twice-Baked Goods";
+    string inputDescription = "Our supplier bakes them! We baked them again! You get them TWICE as fresh!";
+    Vendor testVendor = new Vendor(inputName, inputDescription);
+    // Act
+    int outputId = testVendor.Id;
+    // Assert
+    Assert.AreEqual(1, outputId);
+  }
+
   }
 }
