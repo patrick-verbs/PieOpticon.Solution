@@ -21,5 +21,10 @@ namespace PieOpticon.Models
     {
       return _allVendors;
     }
+
+    public static void ClearAll()
+    {
+      _allVendors.Clear();
+    }
   }
 }

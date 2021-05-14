@@ -6,9 +6,12 @@ using PieOpticon.Models;
 namespace PieOpticon.Test
 {
   [TestClass]
-  public class VendorTests
+  public class VendorTests : IDisposable
   {
-    //
+    public void Dispose()
+    {
+      Vendor.ClearAll();
+    }
 
     [TestMethod]
     public void VendorCtor_CreatesInstanceOf_Vendor()
