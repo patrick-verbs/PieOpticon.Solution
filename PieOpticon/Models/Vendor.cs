@@ -24,7 +24,7 @@ namespace PieOpticon.Models
 
     public static Vendor Find(int searchId)
     {
-      return _allVendors[0];
+      return _allVendors[searchId - 1];
     }
 
     public static void ClearAll()
