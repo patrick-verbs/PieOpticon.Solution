@@ -30,10 +30,10 @@ namespace PieOpticon.Models
       return _allOrders;
     }
 
-    // public static Order Find(int searchId)
-    // {
-    //   return _allOrders[searchId - 1];
-    // }
+    public static Order Find(int searchId)
+    {
+      return _allOrders[searchId - 1];
+    }
 
     public static void ClearAll()
     {
