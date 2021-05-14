@@ -24,7 +24,7 @@ namespace PieOpticon.Test
     public void GetName_ReturnsName_String()
     {
       // Arrange
-      string inputName = "Sanji";
+      string inputName = "Second-Rate Baked Goods";
       Vendor testVendor = new Vendor(inputName, "untested description");
       // Act
       string outputName = testVendor.Name;
@@ -77,13 +77,28 @@ namespace PieOpticon.Test
     {
     // Arrange
     string inputName = "Twice-Baked Goods";
-    string inputDescription = "Our supplier bakes them! We baked them again! You get them TWICE as fresh!";
+    string inputDescription = "Our supplier bakes them! We bake them again! You get them TWICE as fresh!";
     Vendor testVendor = new Vendor(inputName, inputDescription);
     // Act
     int outputId = testVendor.Id;
     // Assert
     Assert.AreEqual(1, outputId);
-  }
+    }
 
+    [TestMethod]
+    public void Find_ReturnsCorrectVendor_Vendor()
+    {
+    // Arrange
+    string inputName1 = "Second-Rate Baked Goods";
+    string inputDescription1 = "Second-stalest second-hand baked goods in the state's second-most-populated city!";
+    string inputName2 = "Twice-Baked Goods";
+    string inputDescription2 = "Our supplier bakes them! We bake them again! You get them TWICE as fresh!";
+    Vendor testVendor1 = new Vendor(inputName1, inputDescription1);
+    Vendor testVendor2 = new Vendor(inputName2, inputDescription2);
+    // Act
+    Vendor foundVendor = Vendor.Find(2);
+    // Assert
+    Assert.AreEqual(testVendor2, foundVendor);
+    }
   }
 }
