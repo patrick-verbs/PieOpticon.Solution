@@ -11,7 +11,6 @@ namespace PieOpticon.Models
     public string Description { get; set; }
     public int Price { get; set; }
     public string Date { get; set; }
-    public List<Vendor> Vendors { get; set; }
 
     public Order (string orderTitle, string date, int vendorId, int price)
     {
@@ -20,9 +19,9 @@ namespace PieOpticon.Models
       VendorId = vendorId;
       Price = price;
       Description = $"{Date} | {Vendor.Find(vendorId).Name} | ${Price}";
-      _allOrders.Add(this);
+      _allOrders.Add(this);// Add to the list of all orders
       Id = _allOrders.Count;
-      Vendors = new List<Vendor>{};
+      Vendor.Find(VendorId).Orders.Add(this);// Add to a vendor's specific list of orders
     }
 
     public static List<Order> GetAll()

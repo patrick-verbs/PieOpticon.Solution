@@ -104,5 +104,24 @@ namespace PieOpticon.Test
     // Assert
     Assert.AreEqual(testOrder2, foundOrder);
     }
+
+    [TestMethod]
+    public void OrderCtor_AddsOrderToVendorList_Order()
+    {
+      // Arrange
+      Vendor testVendor = new Vendor(
+        "Test vendor",
+        "Description for a test vendor"
+      );
+      string orderTitle = "Bread x 48; Pastry x 24";
+      string date = "2021-05-14";
+      int vendorId = testVendor.Id;
+      int price = 180;
+      // Act
+      Order constructedOrder = new Order(orderTitle, date, vendorId, price);
+      Order returnedVendorOrder = Vendor.Find(vendorId).Orders[0];
+      // Assert
+      Assert.AreEqual(constructedOrder, returnedVendorOrder);
+    }
   }
 }
