@@ -25,10 +25,10 @@ namespace PieOpticon.Models
       Vendors = new List<Vendor>{};
     }
 
-    // public static List<Order> GetAll()
-    // {
-    //   return _allOrders;
-    // }
+    public static List<Order> GetAll()
+    {
+      return _allOrders;
+    }
 
     // public static Order Find(int searchId)
     // {

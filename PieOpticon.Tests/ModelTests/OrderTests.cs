@@ -51,45 +51,39 @@ namespace PieOpticon.Test
       Assert.AreEqual(expectedString, returnedString);
     }
 
-    // [TestMethod]
-    // public void GetDescription_ReturnsDescription_String()
-    // {
-    //   // Arrange
-    //   string inputDescription = "Second-stalest second-hand baked goods in the state's second-most-populated city!";
-    //   Order testOrder = new Order("untested name", inputDescription);
-    //   // Act
-    //   string outputDescription = testOrder.Description;
-    //   // Assert
-    //   Assert.AreEqual(inputDescription, outputDescription);
-    // }
+    [TestMethod]
+    public void GetAll_ReturnsEmptyList_OrderList()
+    {
+      // Arrange
+      List<Order> testList = new List<Order> {};
+      // Act
+      List<Order> result = Order.GetAll();
+      // Assert
+      CollectionAssert.AreEqual(testList, result);
+    }
 
-    // [TestMethod]
-    // public void GetAll_ReturnsEmptyList_OrderList()
-    // {
-    //   // Arrange
-    //   List<Order> testList = new List<Order> {};
-    //   // Act
-    //   List<Order> result = Order.GetAll();
-    //   // Assert
-    //   CollectionAssert.AreEqual(testList, result);
-    // }
-
-    // [TestMethod]
-    // public void GetAll_ReturnsOrders_OrderList()
-    // {
-    //   // Arrange
-    //   string inputName = "Second-Rate Baked Goods";
-    //   string inputDescription = "Second-stalest second-hand baked goods in the state's second-most-populated city!";
-    //   Order testOrder = new Order(inputName, inputDescription);
-    //   List<Order> expectedList = new List<Order>
-    //   {
-    //     testOrder
-    //   };
-    //   // Act
-    //   List<Order> outputList = Order.GetAll();
-    //   // Assert
-    //   CollectionAssert.AreEqual(expectedList, outputList);
-    // }
+    [TestMethod]
+    public void GetAll_ReturnsOrders_OrderList()
+    {
+      // Arrange
+      Vendor testVendor = new Vendor(
+        "Test vendor",
+        "Description for a test vendor"
+      );
+      string orderTitle = "Bread x 48; Pastry x 24";
+      string date = "2021-05-14";
+      int vendorId = testVendor.Id;
+      int price = 180;
+      Order testOrder = new Order(orderTitle, date, vendorId, price);
+      List<Order> expectedList = new List<Order>
+      {
+        testOrder
+      };
+      // Act
+      List<Order> outputList = Order.GetAll();
+      // Assert
+      CollectionAssert.AreEqual(expectedList, outputList);
+    }
 
     // [TestMethod]
     // public void GetId_OrdersInstantiateWithAnIdAndGetterReturns_Int()
