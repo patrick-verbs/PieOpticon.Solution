@@ -31,17 +31,24 @@ namespace PieOpticon.Test
       Assert.AreEqual(typeof(Order), testOrder.GetType());
     }
 
-    // [TestMethod]
-    // public void GetName_ReturnsName_String()
-    // {
-    //   // Arrange
-    //   string inputName = "Second-Rate Baked Goods";
-    //   Order testOrder = new Order(inputName, "untested description");
-    //   // Act
-    //   string outputName = testOrder.Name;
-    //   // Assert
-    //   Assert.AreEqual(inputName, outputName);
-    // }
+    [TestMethod]
+    public void GetAndConcatTitleDateVendorIdPrice_ReturnsStringStringIntInt_String()
+    {
+      // Arrange
+      Vendor testVendor = new Vendor(
+        "Second-Rate Baked Goods",
+        "Second-stalest second-hand baked goods in the state's second-most-populated city!"
+      );
+      string orderTitle = "Bread x 48; Pastry x 24";
+      string date = "2021-05-14";
+      int vendorId = testVendor.Id;
+      int price = 180;// == (48 * 3) + (24 * 1.5)
+      string expectedString = $"{orderTitle} | ";
+      // Act
+      Order testOrder = new Order(orderTitle, date, vendorId, price);
+      // Assert
+      Assert.AreEqual(typeof(Order), testOrder.GetType());
+    }
 
     // [TestMethod]
     // public void GetDescription_ReturnsDescription_String()
