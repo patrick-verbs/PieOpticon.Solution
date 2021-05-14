@@ -28,5 +28,17 @@ namespace PieOpticon.Test
       // Assert
       Assert.AreEqual(inputName, outputName);
     }
+
+    [TestMethod]
+    public void GetDescription_ReturnsDescription_String()
+    {
+      // Arrange
+      string inputDescription = "Second-stalest second-hand baked goods in the state's second-most-populated city!";
+      Vendor testVendor = new Vendor("untested name", inputDescription);
+      // Act
+      string outputDescription = testVendor.Description;
+      // Assert
+      Assert.AreEqual(inputDescription, outputDescription);
+    }
   }
 }
