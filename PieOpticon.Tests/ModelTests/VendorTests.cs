@@ -16,5 +16,17 @@ namespace PieOpticon.Test
       Vendor testVendor = new Vendor("test", "this is a test vendor");
       Assert.AreEqual(typeof(Vendor), testVendor.GetType());
     }
+
+    [TestMethod]
+    public void GetName_ReturnsName_String()
+    {
+      // Arrange
+      string inputName = "Sanji";
+      Vendor testVendor = new Vendor(inputName, "untested description");
+      // Act
+      string outputName = testVendor.Name;
+      // Assert
+      Assert.AreEqual(inputName, outputName);
+    }
   }
 }
