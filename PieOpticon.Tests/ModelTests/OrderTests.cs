@@ -43,11 +43,12 @@ namespace PieOpticon.Test
       string date = "2021-05-14";
       int vendorId = testVendor.Id;
       int price = 180;// == (48 * 3) + (24 * 1.5)
-      string expectedString = $"{orderTitle} | ";
+      string expectedString = "Bread x 48; Pastry x 24 | 2021-05-14 | Second-Rate Baked Goods | $180";
       // Act
       Order testOrder = new Order(orderTitle, date, vendorId, price);
+      string returnedString = $"{orderTitle} | {date} | {Vendor.Find(vendorId).Name} | ${price}";
       // Assert
-      Assert.AreEqual(typeof(Order), testOrder.GetType());
+      Assert.AreEqual(expectedString, returnedString);
     }
 
     // [TestMethod]
