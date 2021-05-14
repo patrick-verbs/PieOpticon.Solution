@@ -40,5 +40,16 @@ namespace PieOpticon.Test
       // Assert
       Assert.AreEqual(inputDescription, outputDescription);
     }
+
+    [TestMethod]
+    public void GetAll_ReturnsEmptyList_VendorList()
+    {
+      // Arrange
+      List<Vendor> testList = new List<Vendor> {};
+      // Act
+      List<Vendor> result = Vendor.GetAll();
+      // Assert
+      CollectionAssert.AreEqual(testList, result);
+    }
   }
 }
