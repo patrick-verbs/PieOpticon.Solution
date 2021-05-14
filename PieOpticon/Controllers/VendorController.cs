@@ -26,5 +26,27 @@ namespace PieOpticon.Controllers
       return View();
     }
 
+    [HttpGet("/vendors/{id}")]
+    public ActionResult Show(int id)
+    {
+      Dictionary<string, object> vendorWithOrders = new Dictionary<string, object>();
+      Vendor thisVendor = Vendor.Find(id);
+      vendorWithOrders.Add("vendor", thisVendor);
+      List<Order> theseOrders = thisVendor.Orders;
+      vendorWithOrders.Add("orders", theseOrders);
+      return View(vendorWithOrders);
+    }
+
+    [HttpPost("/vendors/{id}/orders")]
+    public ActionResult Create(string title, string date, int vendorId, int price)
+    {
+      Dictionary<string, object> vendorWithOrders = new Dictionary<string, object>();
+      Vendor thisVendor = Vendor.Find(vendorId);
+      vendorWithOrders.Add("vendor", thisVendor);
+      Order thisOrder = new Order(title, date, vendorId, price);
+      List<Order> theseOrders = thisVendor.Orders;
+      vendorWithOrders.Add("orders", theseOrders);
+      return View("Show", vendorWithOrders);
+    }
   }
 }
