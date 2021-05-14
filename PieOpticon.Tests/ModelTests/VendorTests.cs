@@ -54,5 +54,22 @@ namespace PieOpticon.Test
       // Assert
       CollectionAssert.AreEqual(testList, result);
     }
+
+    [TestMethod]
+    public void GetAll_ReturnsVendors_VendorList()
+    {
+      // Arrange
+      string inputName = "Second-Rate Baked Goods";
+      string inputDescription = "Second-stalest second-hand baked goods in the state's second-most-populated city!";
+      Vendor testVendor = new Vendor(inputName, inputDescription);
+      List<Vendor> expectedList = new List<Vendor>
+      {
+        testVendor
+      };
+      // Act
+      List<Vendor> outputList = Vendor.GetAll();
+      // Assert
+      CollectionAssert.AreEqual(expectedList, outputList);
+    }
   }
 }
