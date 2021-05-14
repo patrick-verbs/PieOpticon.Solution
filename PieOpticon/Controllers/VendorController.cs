@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using PieOpticon.Models;
+using System.Collections.Generic;
 
 namespace PieOpticon.Controllers
 {
@@ -10,6 +11,19 @@ namespace PieOpticon.Controllers
     {
       Vendor thisVendor = new Vendor(vendorName, vendorDescription);
       return RedirectToAction("Index");
+    }
+
+    [HttpGet("/vendors")]
+    public ActionResult Index()
+    {
+      List<Vendor> allVendors = Vendor.GetAll();
+      return View(allVendors);
+    }
+
+    [HttpGet("/vendors/new")]
+    public ActionResult New()
+    {
+      return View();
     }
 
   }
