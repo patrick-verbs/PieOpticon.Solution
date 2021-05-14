@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace YOURPROJECT
+namespace PieOpticon
 {
   public class Startup
   {
@@ -34,11 +34,9 @@ namespace YOURPROJECT
         routes.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
       });
 
-      // These lines of code tell our app to print "Hello World" if a proper MVC route cannot be found
-      // If you haven't created any routes yet, your application displays this filler text instead
       app.Run(async (context) =>
       {
-        await context.Response.WriteAsync("Hello World! This text shows up because the path you're looking for doesn't exist (yet...)");
+        await context.Response.WriteAsync("Page not found :(");
       });
     }
   }

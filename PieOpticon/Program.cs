@@ -1,12 +1,11 @@
 using System.IO;
 using Microsoft.AspNetCore.Hosting;
 
-namespace YOURPROJECT
+namespace PieOpticon
 {
   public class Program
   {
     public static void Main(string[] args)
-    // This is all necessary boilerplate
     {
       var host = new WebHostBuilder()
         .UseKestrel()
