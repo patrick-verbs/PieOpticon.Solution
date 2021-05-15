@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>PieOpticon | Vendor & Order Tracking</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  </head>
+  <body>
+    @using PieOpticon.Models
+    <h1>Order: @Model["order"].Title</h1>
+
+    <ul>
+      <li><em>Date:</em> @Model["order"].Date</li>
+      <li><em>Description:</em> @Model["order"].Description</li>
+      <li><em>Price:</em> @Model["order"].Price</li>
+    </ul>
+
+    <br>
+    <form action='/vendors/@Model["vendor"].Id/orders/delete' method="post">
+      <input id="vendorId" name="vendorId" type="hidden" value='@Model["vendor"].Id' required>
+      <input id="orderId" name="orderId" type="hidden" value='@Model["order"].Id' required>
+    </form>
+    <br>
+    <a href='/vendors/@Model["vendor"].Id'><button>Return to Orders</button></a>
+    <br>
+    <a href="/vendors"><button>Back to Vendors</button></a>
+
+  </body>
+</html>
