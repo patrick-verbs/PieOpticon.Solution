@@ -20,7 +20,7 @@ The solution was a project to represent a simple database of vendors and orders 
 
 ### Installation
 
-1. Clone the repository: `$ git clone https://github.com/YOURGITHUB/PieOpticon.Solution`
+1. Clone the repository: `$ git clone https://github.com/patrick-verbs/PieOpticon.Solution`
 2. Navigate to the `PieOpticon.Solution` directory on your computer
 3. Open with your preferred text editor to view the code base
 4. To build and run the app:
